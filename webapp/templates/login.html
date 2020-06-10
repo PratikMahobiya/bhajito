@@ -1,0 +1,56 @@
+{% load static %}
+
+<html>
+	<head>
+		<title>{% block title %} {% endblock %}</title>
+		<!--<link rel="icon" href="imageset/favicon.png">-->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+		<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+		<script src="{% static 'js/materialize.min.js' %}"></script>
+		<script src="{% static 'js/script.js' %}"></script>
+	</head>
+
+	<body>
+		{% if messages %}
+			{% for message in messages %}
+					<script>
+						Materialize.toast('{{ message }}', 3000);
+					</script>
+			{% endfor %}
+		{% endif %}
+    <div class="container center-align">
+      <h1>Login</h1>
+			<div class="row">
+				<form action="/auth/" method="POST" class="col s12"
+						onsubmit="Materialize.toast('Hope, You Check Who You Are?',2000)">{% csrf_token %}
+					<div class="row">
+							<input class="with-gap" type="radio" id="Customer" name="Type" value="Customer">
+							<label for="Customer">Customer</label>
+							<input class="with-gap" type="radio" id="Restaurent" name="Type" value="Restaurent">
+							<label for="Restaurent">Restaurent</label><br>
+						<div class="input-field col s12">
+							<i class="material-icons prefix">account_circle</i>
+		        			<input type="text" name="user" id="username" class="validate">
+							<label for="username">Username</label>
+						</div>
+						<div class="input-field col s12">
+							<i class="material-icons prefix">vpn_key</i>
+							<input type="password" name="pass" class="validate" id="password">
+							<label for="password">Password</label>
+						</div>
+						<div class="input-field col s12">
+		        	<button type="submit" class="btn">Login</button>
+						</div>
+					</div>
+      	</form>
+			</div>
+    </div>
+
+</body>
+</html>

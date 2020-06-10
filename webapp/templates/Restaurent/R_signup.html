@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/materialize.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    
+</head>
+<body>
+<div class="container center-align">
+    <h1>REGISTRATION</h1>
+            <div class="row">
+                <form action="/restaurent/R_regis/ " method="post" class="col s12" >
+                    <div class="row">
+                        {% csrf_token %}
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input type="text" name="username" id="username" class="validate">
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">email</i>
+                            <input type="email" name="email" id="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">vpn_key</i>
+                            <input type="password" name="password" class="validate" id="password">
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <button type="submit" class="btn">Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+</div>
+
+
+</body>
+</html>
